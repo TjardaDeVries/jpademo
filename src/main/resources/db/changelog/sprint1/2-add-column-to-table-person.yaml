@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-column-age-to-table-person
+      author: tvr08139
+      changes:
+        addColumn:
+          tableName: person
+          columns:
+            - column:
+                name: age
+                type: int

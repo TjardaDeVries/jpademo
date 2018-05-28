@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - preConditions:
+    dbms: postgresql
+    runningAs:
+     - username: winston-app
+
+  - include:
+      file: db/changelog/sprint1/db.changelog.yaml
