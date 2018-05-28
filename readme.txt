@@ -17,3 +17,11 @@ insert into person values (2, 'John');
 insert into person values (3, 'George');
 insert into person values (4, 'Ringo');
 
+Create table person with auto increment of id:
+
+CREATE SEQUENCE person_id_seq;
+CREATE TABLE person(
+  id int NOT NULL DEFAULT nextval('person_id_seq'),
+  name varchar,
+  PRIMARY KEY(id)
+);
