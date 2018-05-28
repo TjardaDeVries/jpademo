@@ -1,7 +1,17 @@
 package nl.ordina.jpademo.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "person")
 public final class Person {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
@@ -20,4 +30,5 @@ public final class Person {
     public void setName(final String name) {
         this.name = name;
     }
+
 }
