@@ -8,12 +8,12 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class PersonRepo {
+public final class PersonRepo {
 
     @Autowired
-    JdbcTemplate jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
 
-    public Person save(Person person) {
+    public Person save(final Person person) {
         String statement = String.format("insert into person values (%d, '%s');",
                 person.getId(), person.getName());
         jdbcTemplate.execute(statement);
@@ -25,6 +25,5 @@ public class PersonRepo {
                 (rs, rowNum) -> new Person(rs.getLong("id"), rs.getString("name"))
         );
     }
-
 
 }
