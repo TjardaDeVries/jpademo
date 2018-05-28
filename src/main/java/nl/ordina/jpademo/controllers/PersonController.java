@@ -3,7 +3,11 @@ package nl.ordina.jpademo.controllers;
 import nl.ordina.jpademo.model.Person;
 import nl.ordina.jpademo.persistence.PersonRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +23,7 @@ public final class PersonController {
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public List<Person> findAll() {
-        return entityList;
+        return personRepo.findAll();
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
@@ -35,4 +39,5 @@ public final class PersonController {
                 filter(entity -> entity.getId().equals(id)).
                 findFirst().get();
     }
+    
 }
