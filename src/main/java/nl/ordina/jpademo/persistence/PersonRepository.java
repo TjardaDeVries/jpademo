@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public final class PersonRepo {
+public final class PersonRepository {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;

@@ -1,7 +1,7 @@
 package nl.ordina.jpademo.controllers;
 
 import nl.ordina.jpademo.model.Person;
-import nl.ordina.jpademo.persistence.PersonRepo;
+import nl.ordina.jpademo.persistence.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,10 +18,10 @@ public final class PersonController {
 
     private List<Person> entityList = new ArrayList<>();
 
-    private final PersonRepo personRepo;
+    private final PersonRepository personRepo;
 
     @Autowired
-    public PersonController(final PersonRepo personRepo) {
+    public PersonController(final PersonRepository personRepo) {
         this.personRepo = personRepo;
     }
 
