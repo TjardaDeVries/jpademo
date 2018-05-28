@@ -18,8 +18,12 @@ public final class PersonController {
 
     private List<Person> entityList = new ArrayList<>();
 
+    private final PersonRepo personRepo;
+
     @Autowired
-    private PersonRepo personRepo;
+    public PersonController(final PersonRepo personRepo) {
+        this.personRepo = personRepo;
+    }
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public List<Person> findAll() {
@@ -39,5 +43,5 @@ public final class PersonController {
                 filter(entity -> entity.getId().equals(id)).
                 findFirst().get();
     }
-    
+
 }
