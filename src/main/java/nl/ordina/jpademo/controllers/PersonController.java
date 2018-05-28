@@ -37,5 +37,4 @@ public final class PersonController {
     public Person retrievePerson(@PathVariable final Long id) {
         return personRepo.findById(id).get();
     }
-    
 }
