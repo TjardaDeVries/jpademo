@@ -1,4 +1,4 @@
-package nl.ordina.jpademo.persistence.dao;
+package nl.ordina.jpademo.persistence.repo;
 
 import nl.ordina.jpademo.model.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
