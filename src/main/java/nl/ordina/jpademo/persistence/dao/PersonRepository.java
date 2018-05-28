@@ -1,4 +1,4 @@
-package nl.ordina.jpademo.persistence;
+package nl.ordina.jpademo.persistence.dao;
 
 import nl.ordina.jpademo.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
