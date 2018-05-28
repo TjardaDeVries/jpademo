@@ -1,7 +1,7 @@
 package nl.ordina.jpademo.controllers;
 
 import nl.ordina.jpademo.model.Person;
-import nl.ordina.jpademo.persistence.dao.PersonRepository;
+import nl.ordina.jpademo.persistence.repo.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
