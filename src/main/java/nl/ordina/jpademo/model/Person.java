@@ -2,6 +2,9 @@ package nl.ordina.jpademo.model;
 
 public final class Person {
 
+    public Person() {
+    }
+
     public Person(final Long id, final String name) {
         this.id = id;
         this.name = name;
