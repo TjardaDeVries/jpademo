@@ -1,7 +1,7 @@
 package nl.ordina.jpademo.controllers;
 
 import nl.ordina.jpademo.model.Person;
-import nl.ordina.jpademo.persistence.dao.PersonRepository;
+import nl.ordina.jpademo.persistence.dao.PersonDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,30 +16,30 @@ import java.util.List;
 @RequestMapping(value = "/api/person")
 public final class PersonController {
 
-    private List<Person> entityList = new ArrayList<>();
+    private List<Person> personList = new ArrayList<>();
 
-    private final PersonRepository personRepo;
+    private final PersonDAO personDAO;
 
     @Autowired
-    public PersonController(final PersonRepository personRepo) {
-        this.personRepo = personRepo;
+    public PersonController(final PersonDAO personDAO) {
+        this.personDAO = personDAO;
     }
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public List<Person> findAll() {
-        return personRepo.findAll();
+        return personDAO.findAll();
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     public Person createPerson(@RequestBody final Person person) {
-        entityList.add(person);
-        personRepo.save(person);
+        personList.add(person);
+        personDAO.save(person);
         return person;
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Person retrievePerson(@PathVariable final Long id) {
-        return entityList.stream().
+        return personList.stream().
                 filter(entity -> entity.getId().equals(id)).
                 findFirst().get();
     }
