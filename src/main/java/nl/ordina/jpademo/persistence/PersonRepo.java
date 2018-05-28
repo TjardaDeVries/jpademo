@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class PersonRepo {
 
@@ -17,5 +19,12 @@ public class PersonRepo {
         jdbcTemplate.execute(statement);
         return person;
     }
+
+    public List<Person> findAll() {
+        return jdbcTemplate.query("select * from person;",
+                (rs, rowNum) -> new Person(rs.getLong("id"), rs.getString("name"))
+        );
+    }
+
 
 }
